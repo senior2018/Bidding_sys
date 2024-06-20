@@ -1,0 +1,118 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+body{
+    background: url(1.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+.l-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+.l-box{
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    padding: 60px 20px 30px 20px;
+    height: 620px;
+    width: 350px;
+    background-color: rgb(255, 220, 220, 0.4);
+    border-radius: 30px;
+    -webkit-backdrop-filter: blur(15px);
+    backdrop-filter: blur(15px);
+    border: 3px solid rgba(255, 255, 255, 0.2);
+    overflow: hidden;
+}
+.l-box-login{
+    position: absolute;
+    width: 85%;
+    left: 27px;
+    transition: .5s ease-in-out;
+}
+.top-header{
+    text-align: center;
+    margin: 30px 0;
+}
+.top-header h3{
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+.l-input-group{
+    width: 100%;
+}
+.l-input-field{
+    margin: 12px 0;
+    position: relative;
+}
+.l-input-box{
+    width: 100%;
+    height: 50px;
+    font-size: 15px;
+    color: #040404;
+    border: none;
+    border-radius: 10px;
+    padding: 7px 45px 0 20px;
+    background: rgba(224, 223, 223, 0.6);
+    backdrop-filter: blur(2px);
+    outline: none;
+    border-radius: 35px;
+    padding: 0 10px 0 45px;
+}
+
+.l-remember{
+    display: flex;
+    font-size: 13px;
+    margin: 12px 0 30px 0;
+    color: #000;
+}
+.l-check{
+    margin-right: 8px;
+    width: 14px;
+}
+.l-input-submit{
+    width: 100%;
+    height: 45px;
+    font-size: 15px;
+    font-weight: 500;
+    border: none;
+    border-radius: 10px;
+    color: #fff;
+    background: #ff7200;
+    box-shadow: 0px 4px 20px rgba(62, 9, 9, 0.145);
+    cursor: pointer;
+    transition: .3s ease-in-out;
+    border-radius: 35px;
+}
+.l-input-submit:hover{
+    background: #bd3e00;
+    box-shadow: 0px 4px 20px rgba(62, 9, 9, 0.32)
+}
+.l-forgot{
+    font-size: 13px;
+    font: 500;
+    margin-top: 40px;
+    text-align: center;
+}
+.l-forgot a{
+    text-decoration: none;
+    color: #ff7200;
+    
+}
+.l-forgot a:hover{
+    text-decoration: underline;
+}
+.l-forgot span{
+    margin-top: 20px;
+}
+.l-dont{
+    text-align: center;
+}
