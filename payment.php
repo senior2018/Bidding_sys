@@ -18,16 +18,25 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['confirm_payment'])) {
     // Insert payment confirmation details into the database
     $query = "INSERT INTO payment_confirmations (product_id, payment_type, payment_date, amount, receipt_number) VALUES ('$product_id', '$payment_type', '$payment_date', '$amount', '$receipt_number')";
     if (mysqli_query($conn, $query)) {
+        // Get the user details
+        $user_id = $_SESSION['user_id'];
+        $user_query = "SELECT username, mobile_number, email FROM users WHERE id = $user_id";
+        $user_result = mysqli_query($conn, $user_query);
+        $user = mysqli_fetch_assoc($user_result);
+
+        // Prepare the notification message
+        $product_name = $product['name'];
+        $message = "Payment confirmation submitted for (Product ID: $product_id), (Product Name: $product_name), (Amount Paid: $amount) and (Date of Payment: $payment_date)";
+
         // Insert notification for admin
-        $notification_query = "INSERT INTO notifications (user_id, message, type, status, created_at) VALUES (1, 'Payment confirmation submitted for product ID: $product_id', 'payment_confirmation', 'unread', NOW())";
+        $notification_query = "INSERT INTO notifications (user_id, product_id, message, type, created_at) VALUES ($user_id, $product_id, '$message', 'payment_confirmation', NOW())";
         mysqli_query($conn, $notification_query);
-        
+
         $confirmation_message = "Payment confirmation submitted successfully!";
     } else {
         $confirmation_message = "Error: " . mysqli_error($conn);
     }
 }
-
 ?>
 
 <!DOCTYPE html>

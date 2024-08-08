@@ -108,7 +108,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     <label>Current price: <span id="current-price"><?php echo htmlspecialchars($current_price); ?> TSH</span></label>
                     <form method="POST" class="bid-form-price" action="bid_product.php?auction_id=<?php echo $auction['auction_id']; ?>&product_id=<?php echo $auction['product_id']; ?>" onsubmit="return validateBidAmount();">
                         <label for="bid_amount">Bid Amount:</label>
-                        <input type="number" name="bid_amount" id="bid_amount" required>
+                        <input type="number" name="bid_amount" id="bid_amount" class="bid input" required>
                         <button type="submit">Place Bid</button>
                     </form>
                 </div>

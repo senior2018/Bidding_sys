@@ -6,6 +6,7 @@
 }
 body{
     background: linear-gradient(to top, rgba(0,0,0,0.5) 50%, rgba(0,0,0,0.5) 50%), url(../image/bgd.jpg);
+    opacity: 0.9;
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -40,6 +41,107 @@ a:hover{
     width: 100%;
     background-position: center;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Index.php css */
+        .header {
+            background: rgba(0, 0, 0, 0.1);
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+        .hero {
+            background: url('assets/images/auction-bg.jpg') no-repeat center center/cover;
+            height: 350px;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+        }
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+        }
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+        .hero h2 {
+            font-size: 3em;
+            margin: 0 0 20px;
+        }
+        .hero p {
+            font-size: 1.2em;
+            margin: 0 0 30px;
+        }
+        .hero a {
+            background: #ff7200;
+            color: #fff;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1.2em;
+        }
+        .hero a:hover {
+            background: #218838;
+        }
+        .features {
+            display: flex;
+            justify-content: space-around;
+            /* padding: 30px 0; */
+            background: #fff;
+            box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .feature {
+            text-align: center;
+            padding: 20px;
+            max-width: 300px;
+        }
+        .feature i {
+            font-size: 3em;
+            color: #007bff;
+            margin-bottom: 10px;
+        }
+        .feature h3 {
+            margin: 10px 0;
+            font-size: 1.5em;
+        }
+        .feature p {
+            color: #666;
+        }
+        footer {
+            background: #ff7200;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+        }
+        footer p {
+            margin: 0;
+        }
 
 
 
@@ -93,7 +195,6 @@ a:hover{
 .nav-menu ul li.dropdown .dropdown-content{
     display: none;
     position: absolute;
-    border-color: #ff7200;
     min-width: 160px;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     z-index: 1;
@@ -107,7 +208,7 @@ a:hover{
     margin-top: 5px;
 }
 .nav-menu ul li.dropdown .dropdown-content a:hover {
-    color: #ff7200; /* Highlight color on hover */
+    color: #ff7200;
 }
 
 
@@ -151,7 +252,7 @@ h1 {
 .image-gallery {
     flex: 1;
     margin-right: 30px;
-    border: 1px solid #ff7200; 
+    border: 1px solid rgba(255, 220, 220, 0.4); 
 }
 
 .image-gallery img {
@@ -246,7 +347,7 @@ h1 {
 }
 .a-buttons button {
     padding: 10px 20px;
-    background-color: #ccc;
+    background-color: #ff7200;
     border: none;
     border-radius: 70%;
     cursor: pointer;
@@ -255,7 +356,7 @@ h1 {
 }
 
 .a-buttons button:hover {
-    color: #ff7200;
+    background-color: #ff5c00;
     
 }
 .show-hide-button {
@@ -314,11 +415,11 @@ label {
 }
 select, input[type="text"], input[type="number"], input[type="datetime-local"] {
     font-size: 15px;
-    border: 1px solid #ff7200;
+    /* border: 1px solid #ff7200; */
     background-color: #f0f0f0;
     width: 100%;
     margin-bottom: 20px;
-   
+    color: black;
 }
 .edit-form form button {
     background-color: #ff7200;
@@ -391,16 +492,14 @@ header{
 .r-box{
     height: 640px;
     width: 450px;
-    /* background-color: rgb(255, 220, 220, 0.4); */
     border-radius: 30px;
     -webkit-backdrop-filter: blur(15px);
     backdrop-filter: blur(15px);
-    /* border: 3px solid #ff7200; */
     overflow: hidden;
 }
 .form-box, .r-box {
     background: rgba(255, 220, 220, 0.4);
-    border: 3px solid #ff7200; 
+    border: 3px solid rgba(255, 220, 220, 0.4); 
     backdrop-filter: blur(15px);
 }
 .register-container{
@@ -423,23 +522,16 @@ header{
 }
 .input-field{
     font-size: 15px;
-    background: rgba(255, 220, 220, 0.4);
     color: #333;
     height: 50px;
     width: 100%;
     padding: 0 10px 0 45px;
-    border: 3px solid #ff7200;
+    border: 3px solid rgba(255, 220, 220, 0.4);
     border-radius: 35px;
     outline: none;
     transition: .2s ease;
     margin-bottom: 20px;
 }
-/* .input-field:hover, .input-field:focus{
-    background: rgba(255, 255, 255, 0.25);
-}
-::-webkit-input-placeholder{
-    color: white;
-} */
 .input-box i{
     position: relative;
     top: -35px;
@@ -461,7 +553,6 @@ header{
 }
 .submit:hover{
     background-color: #ff5c00;
-    /* box-shadow: 0px 4px 20px rgba(62, 9, 9, 0.32) */
 }
 .two-col {
     display: flex;
@@ -494,6 +585,10 @@ header{
     margin-left: 2px;
     margin-right: 4px;
 }
+
+
+
+
 
 
 
@@ -578,8 +673,16 @@ input, textarea {
 
 
 
+
+
+
+
+
+
+
+
+
 /* admin dashboard css */
-/* Stats box styles */
 .stats {
     display: flex;
     justify-content: space-around;
@@ -589,7 +692,7 @@ input, textarea {
 .stat-box {
     padding: 10px;
     text-align: center;
-    border: 3px solid #ff7200;
+    border: 3px solid rgba(255, 220, 220, 0.4);
     border-radius: 30px;
     width: 20%;-webkit-backdrop-filter: blur(15px);
     backdrop-filter: blur(15px);
@@ -612,11 +715,17 @@ input, textarea {
 
 
 
+
+
+
+
+
+
 /* a_manage user css  */
 .role-dropdown {
     padding: 5px;
     margin-right: 10px; 
-    border: 1px solid #ddd;
+    border: 1px solid rgba(255, 220, 220, 0.4);
     border-radius: 3px;
     background-color:rgba(255, 255, 255, 0.2);
     cursor: pointer;
@@ -630,6 +739,13 @@ input, textarea {
 .role-dropdown option {
     background-color:rgba(255, 255, 255, 0.2);
 }
+
+
+
+
+
+
+
 
 
 
@@ -670,73 +786,17 @@ input, textarea {
 
 
 
-/* s_manage_product.php  */
-.edit-form-container {
-    margin-top: 20px;
-}
-.edit-form-row {
-    display: flex;
-    align-items: center;
-    margin-bottom: 10px;
-    flex-wrap: nowrap;
-}
-.edit-form-label {
-    flex: 0 0 120px;
-    margin-right: 10px;
-}
-.edit-form-input {
-    border: 1px solid #ff7200; 
-    background-color: #f0f0f0;
-    flex: 1;
-    margin-right: 10px;
-    padding: 5px;
-}
-.edit-form-row input[type="file"] {
-    display: block;
-    margin-top: 5px;
-}
-.edit-form-button-row {
-    display: flex;
-    align-items: center;
-    margin-top: 10px;
-}
-.edit-form-button {
-    flex: 0 0 auto;
-    padding: 5px 10px;
-    font-size: 14px;
-    margin-right: 10px;
-    cursor: pointer;
-}
-.existing-images-container {
-    display: flex;
-    flex-wrap: nowrap;
-    margin-top: 10px;
-}
-.existing-image-wrapper {
-    margin-right: 10px;
-}
-.existing-image {
-    width: 100px;
-    height: 100px;
-    object-fit: cover;
-}
-.delete-image-button {
-    display: block;
-    margin-top: 5px;
-    padding: 5px 10px;
-    font-size: 14px;
-    cursor: pointer;
-    background-color: #ff7200; 
-    color: #fff;
-    border: none;
-}
-.delete-image-button:hover {
-    background-color: #ff5c00;
-}
+
+
+
+
+
+
+
+
 
 
 /* News css */
-/* style.css */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
