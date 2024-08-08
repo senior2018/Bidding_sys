@@ -5,18 +5,26 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 body{
-    background: linear-gradient(to top, rgba(0,0,0,0.5)50%,rgba(0,0,0,0.5)50%), url(../image/bgd.jpg);
+    background: linear-gradient(to top, rgba(0,0,0,0.5) 50%, rgba(0,0,0,0.5) 50%), url(../image/bgd.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
+    color: #fff;
 }
-h1{
+h1, h2, h3, label {
     text-align: center;
     color: #ff7200;
+    margin-bottom: 10px;
+}
+body ::placeholder{
+    color: black;
+}
+p {
+    color: #fff;
 }
 a{ 
     text-decoration: none;
-    color: white;
+    color: #fff;
     font-family: Arial;
     font-weight: bold;
     transition: 0.4s ease-in-out;
@@ -32,6 +40,12 @@ a:hover{
     width: 100%;
     background-position: center;
 }
+
+
+
+
+
+/* navigation style */
 .nav{
     background-color: #333;
     display: flex;
@@ -67,7 +81,7 @@ a:hover{
 }
 .nav-menu ul li a{
     text-decoration: none;
-    color: white;
+    color: #fff;
     font-family: Arial;
     font-size: 20px;
     font-weight: bold;
@@ -131,10 +145,13 @@ h1 {
 .auction-item {
     display: flex;
     flex-direction: row;
+    margin: 20px;
 }
 
 .image-gallery {
     flex: 1;
+    margin-right: 30px;
+    border: 1px solid #ff7200; 
 }
 
 .image-gallery img {
@@ -142,26 +159,32 @@ h1 {
     max-width: 400px;
     margin-bottom: 10px;
 }
+.main-image {
+    width: 100px;
+    height: 250px;
+}
 
 .thumbnails {
     display: flex;
     flex-direction: row;
+    gap: 5px;
 }
 
 .thumbnails img {
     width: 80px;
     height: 60px;
-    margin-right: 10px;
     cursor: pointer;
 }
 
 .auction-details {
+    padding-left: 1px;
     flex: 2;
-    padding-left: 20px;
 }
-
+.bid-form-price{
+    padding-left: 1px;
+}
 .bid-info {
-    margin-bottom: 20px;
+    align-items: flex-start;
 }
 
 .bid-info p {
@@ -171,19 +194,20 @@ h1 {
 .bid-info label, .bid-info input, .bid-info button {
     display: block;
     margin-top: 10px;
+    color: #fff;
 }
 
 #place-bid {
     margin-top: 20px;
     padding: 10px 20px;
-    background-color: #4CAF50;
-    color: white;
+    background-color: #ff7200;
+    color: #fff;
     border: none;
     cursor: pointer;
 }
 
 #place-bid:hover {
-    background-color: #45a049;
+    background-color: #ff5c00;
 }
 
 .condition, .description {
@@ -209,12 +233,9 @@ h1 {
     max-width: 90%;
     padding: 20px;
 }
-.content h1{
+.content h1, .section h2 {
     color: #ff7200;
     text-align: center;
-}
-.section h2{
-    color: #ff7200;
 }
 .a-buttons {
     display: flex;
@@ -245,51 +266,56 @@ h1 {
 .show-hide-button:hover {
     cursor: pointer;
     color: #ff7200;
-    background-color: rgba(255, 255, 255, 0.5);
+    background-color: rgba(255, 255, 255, 0.066);
     text-decoration: underline;
 }
 .description {
     display: none;
 }
-
 table{
     width: 100%;
     border-collapse: collapse;
-    background-color: rgba(255, 255, 255, 0.2);
+    background-color: rgba(255, 255, 255, 0.112);
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
 }
 table th {
     background-color: #ff7200;
     color: white;
     padding: 10px 20px;
-    text-align: left;
     font-size: 16px;
 }
 table td {
     padding: 10px 20px;
-    border-bottom: 1px solid #bbb;
+    border-bottom: 1px solid #ddd;
+    color: #fff;
+    font-size: 20px;
 }
 table tr:hover{
-    background-color: rgba(255, 255, 255, 0.3);
+    background-color: rgba(255, 255, 255, 0.2);
 }
+
+
+
+
+
+
+
 
 
 /* form css */
 form {
     max-width: 600px;
     margin: 0 auto;
-    /* padding: 20px; */
-    /* background-color: rgba(255, 255, 255, 0.2); */
-    /* box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); */
 }
 label {
     display: block;
     margin-bottom: 5px;
-    color: #333;
+    color: #fff;
 }
 select, input[type="text"], input[type="number"], input[type="datetime-local"] {
     font-size: 15px;
-    
+    border: 1px solid #ff7200;
+    background-color: #f0f0f0;
     width: 100%;
     margin-bottom: 20px;
    
@@ -303,7 +329,7 @@ select, input[type="text"], input[type="number"], input[type="datetime-local"] {
     transition: background-color 0.3s ease;
 }
 .edit-form form button:hover {
-    background-color: #ff7200;
+    background-color: #ff5c00;
 }
 
 .info {
@@ -365,12 +391,17 @@ header{
 .r-box{
     height: 640px;
     width: 450px;
-    background-color: rgb(255, 220, 220, 0.4);
+    /* background-color: rgb(255, 220, 220, 0.4); */
     border-radius: 30px;
     -webkit-backdrop-filter: blur(15px);
     backdrop-filter: blur(15px);
-    border: 3px solid rgba(255, 255, 255, 0.2);
+    /* border: 3px solid #ff7200; */
     overflow: hidden;
+}
+.form-box, .r-box {
+    background: rgba(255, 220, 220, 0.4);
+    border: 3px solid #ff7200; 
+    backdrop-filter: blur(15px);
 }
 .register-container{
     display: flex;
@@ -392,23 +423,23 @@ header{
 }
 .input-field{
     font-size: 15px;
-    background-color: rgba(255, 255, 255, 0.2);
-    color: white;
+    background: rgba(255, 220, 220, 0.4);
+    color: #333;
     height: 50px;
     width: 100%;
     padding: 0 10px 0 45px;
-    border: none;
+    border: 3px solid #ff7200;
     border-radius: 35px;
     outline: none;
     transition: .2s ease;
     margin-bottom: 20px;
 }
-.input-field:hover, .input-field:focus{
+/* .input-field:hover, .input-field:focus{
     background: rgba(255, 255, 255, 0.25);
 }
 ::-webkit-input-placeholder{
     color: white;
-}
+} */
 .input-box i{
     position: relative;
     top: -35px;
@@ -429,8 +460,8 @@ header{
     transition: .3s ease-in-out;
 }
 .submit:hover{
-    background: #bd3e00;
-    box-shadow: 0px 4px 20px rgba(62, 9, 9, 0.32)
+    background-color: #ff5c00;
+    /* box-shadow: 0px 4px 20px rgba(62, 9, 9, 0.32) */
 }
 .two-col {
     display: flex;
@@ -486,6 +517,7 @@ header{
     text-align: left;
 }
 .contact-form h3{
+    color: #ff7200;
     font-size: 24px;
     margin-bottom: 20px;
 }
@@ -493,7 +525,8 @@ header{
     margin-bottom: 20px;
 }
 .form-group label{
-    color: black;
+    color: #ff7200;
+    font-size: 16px;
 }
 input, textarea{
     width: 100%;
@@ -518,7 +551,7 @@ button{
     transition: 0.5s;
 }
 button:hover{
-    background-color:#743e12;
+    background-color:#ff5c00;
 }
  .contact-info{
     flex-direction: column;
@@ -537,6 +570,13 @@ button:hover{
     color: #ff7200;
     margin-right: 10px;
 }
+input, textarea {
+    background-color: #f0f0f0;
+    color: #333;
+}
+
+
+
 
 /* admin dashboard css */
 /* Stats box styles */
@@ -547,15 +587,14 @@ button:hover{
 }
 
 .stat-box {
-    background-color: rgba(203, 200, 200, 0.4);
     padding: 10px;
     text-align: center;
-    border: 3px solid rgba(255, 255, 255, 0.2);
+    border: 3px solid #ff7200;
     border-radius: 30px;
     width: 20%;-webkit-backdrop-filter: blur(15px);
     backdrop-filter: blur(15px);
     overflow: hidden;
-    box-shadow: 0 2px 5px rgba(50, 50, 50, 0.1);
+    
 }
 
 .stat-box h2 {
@@ -568,7 +607,6 @@ button:hover{
 .stat-box p {
     font-size: 1.5em;
     font-weight: bold;
-    color: black;
 }
 
 
@@ -594,6 +632,12 @@ button:hover{
 }
 
 
+
+
+
+
+
+
 /* a_manage_auction css */
 .edit-form {
     display: none;
@@ -610,7 +654,8 @@ button:hover{
 .edit-form input[type="datetime-local"],
 .edit-form input[type="number"] {
   margin: 0 5px;
-  font-size: 0.875rem; 
+  font-size: 0.875rem;
+  color: #333; 
 }
 .edit-form input[type="datetime-local"],
 .edit-form input[type="number"] {
@@ -618,10 +663,130 @@ button:hover{
 }
 
 
-body h1, h2, h3, label{
-    color: #ff7200;
-    margin-bottom: 10px;
+
+
+
+
+
+
+
+/* s_manage_product.php  */
+.edit-form-container {
+    margin-top: 20px;
 }
-body ::placeholder{
-    color: black;
+.edit-form-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    flex-wrap: nowrap;
+}
+.edit-form-label {
+    flex: 0 0 120px;
+    margin-right: 10px;
+}
+.edit-form-input {
+    border: 1px solid #ff7200; 
+    background-color: #f0f0f0;
+    flex: 1;
+    margin-right: 10px;
+    padding: 5px;
+}
+.edit-form-row input[type="file"] {
+    display: block;
+    margin-top: 5px;
+}
+.edit-form-button-row {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+.edit-form-button {
+    flex: 0 0 auto;
+    padding: 5px 10px;
+    font-size: 14px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+.existing-images-container {
+    display: flex;
+    flex-wrap: nowrap;
+    margin-top: 10px;
+}
+.existing-image-wrapper {
+    margin-right: 10px;
+}
+.existing-image {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+}
+.delete-image-button {
+    display: block;
+    margin-top: 5px;
+    padding: 5px 10px;
+    font-size: 14px;
+    cursor: pointer;
+    background-color: #ff7200; 
+    color: #fff;
+    border: none;
+}
+.delete-image-button:hover {
+    background-color: #ff5c00;
+}
+
+
+/* News css */
+/* style.css */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 15px 0;
+    text-align: center;
+}
+
+.content {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 0 20px;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.news-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.news-item {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.news-item h2 {
+    font-size: 1.5em;
+    margin-top: 0;
+}
+
+.news-item p {
+    font-size: 1em;
+    color: #666;
+}
+
+@media (max-width: 768px) {
+    .news-grid {
+        grid-template-columns: 1fr;
+    }
 }

@@ -37,7 +37,9 @@ $query_bids = "SELECT b.id, u.username, p.name AS product_name, b.bid_amount, b.
                ORDER BY b.bid_time DESC";
 $result_bids = mysqli_query($conn, $query_bids);
 
-
+// Fetch payment confirmation notifications
+$query_payment_confirmations = "SELECT message, created_at FROM notifications WHERE type = 'payment_confirmation' ORDER BY created_at DESC";
+$result_payment_confirmations = mysqli_query($conn, $query_payment_confirmations);
 ?>
 
 <!DOCTYPE html>
@@ -89,6 +91,25 @@ $result_bids = mysqli_query($conn, $query_bids);
                             <td><?php echo $row['product_name']; ?></td>
                             <td><?php echo $row['bid_amount']; ?></td>
                             <td><?php echo $row['bid_time']; ?></td>
+                        </tr>
+                    <?php endwhile; ?>
+                </tbody>
+            </table>
+        </div>
+        <div class="notifications">
+            <h2>Payment Confirmation Notifications</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Message</th>
+                        <th>Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php while ($row = mysqli_fetch_assoc($result_payment_confirmations)): ?>
+                        <tr>
+                            <td><?php echo $row['message']; ?></td>
+                            <td><?php echo $row['created_at']; ?></td>
                         </tr>
                     <?php endwhile; ?>
                 </tbody>

@@ -1,7 +1,7 @@
 <?php
 session_start();
 include 'db_connect.php';
-include 'function.php';
+// include 'function.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $identifier = mysqli_real_escape_string($conn, $_POST['identifier']);

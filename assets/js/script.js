@@ -63,13 +63,3 @@ function validateBidAmount() {
     }
     return true;
 }
-
-// a_manage_auction.php
-function toggleEditForm(auctionId) {
-    var form = document.getElementById('edit-form-' + auctionId);
-    if (form.classList.contains('show-form')) {
-      form.classList.remove('show-form');
-    } else {
-      form.classList.add('show-form');
-    }
-  }

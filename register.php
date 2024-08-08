@@ -1,7 +1,5 @@
-<h3?php
-// Include necessary files
+<?php
 include 'db_connect.php';
-include 'function.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Get form data and sanitize it
@@ -14,25 +12,27 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $password = mysqli_real_escape_string($conn, $_POST['password']);
     $confirm_password = mysqli_real_escape_string($conn, $_POST['confirm_password']);
 
-    // Check if passwords match
+    // Initialize error message
+    $error_message = "some error occured!";
+
+    // Checking if passwords match
     if ($password !== $confirm_password) {
-        die("Passwords do not match.");
-    }
-
-    // Hash the password
-    $hashed_password = password_hash($password, PASSWORD_DEFAULT);
-
-    // Insert user data into the database
-    $sql = "INSERT INTO users (firstname, lastname, mobile_number, national_id, email, username, password, role, approved) 
-            VALUES ('$firstname', '$lastname', '$mobile_number', '$national_id', '$email', '$username', '$hashed_password', 'buyer', 1)";
-
-    // Execute the query
-    if (mysqli_query($conn, $sql)) {
-        // Redirect to login page after successful registration
-        header('Location: login.php');
-        exit();
+        $error_message = "Passwords do not match.";
     } else {
-        echo "Error: " . mysqli_error($conn);
+        // Hash the password
+        $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+
+        // Creating the SQL query
+        $sql = "INSERT INTO users (firstname, lastname, mobile_number, national_id, email, username, password, role, approved) 
+                VALUES ('$firstname', '$lastname', '$mobile_number', '$national_id', '$email', '$username', '$hashed_password', 'buyer', 1)";
+
+        // Executing the query
+        if (mysqli_query($conn, $sql)) {
+            header('Location: login.php');
+            exit();
+        } else {
+            $error_message = "Error: " . mysqli_error($conn);
+        }
     }
 
     // Close the connection
@@ -46,7 +46,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets/css/style.css">
-    <title>Document</title>
+    <title>Sign Up</title>
 </head>
 <body>
 
@@ -54,13 +54,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 <div class="r-container">
     <div class="r-box">
-    <!-- Registration form -->
         <form action="register.php" method="POST">
             <div class="register-container" id="register">
                 <div class="top-header">
                     <h3>Sign up Now</h3>
                     <br><small>We Are Happy To Have You With Us.</small>
                 </div>
+                <?php if (!empty($error_message)): ?>
+                    <div class="error-message"><?php echo $error_message; ?></div>
+                <?php endif; ?>
                 <div class="two-forms">
                     <div class="input-box">
                         <input type="text" class="input-field" name="firstname" placeholder="Firstname" required>

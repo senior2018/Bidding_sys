@@ -45,6 +45,7 @@ body{
     font-size: 22px;
     font-weight: 600;
     margin-bottom: 8px;
+    color: #ff7200;
 }
 .l-input-group{
     width: 100%;
@@ -61,7 +62,7 @@ body{
     border: none;
     border-radius: 10px;
     padding: 7px 45px 0 20px;
-    background: rgba(224, 223, 223, 0.6);
+    background-color: #f0f0f0;
     backdrop-filter: blur(2px);
     outline: none;
     border-radius: 35px;
@@ -93,8 +94,8 @@ body{
     border-radius: 35px;
 }
 .l-input-submit:hover{
-    background: #bd3e00;
-    box-shadow: 0px 4px 20px rgba(62, 9, 9, 0.32)
+    background-color: #ff5c00
+    /* box-shadow: 0px 4px 20px rgba(62, 9, 9, 0.32) */
 }
 .l-forgot{
     font-size: 13px;

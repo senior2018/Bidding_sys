@@ -18,10 +18,3 @@ function loginUser($email, $password) {
         return false;
     }
 }
-
-function registerUser($firstname, $lastname, $email, $password, $role) {
-    global $conn;
-    $query = "INSERT INTO users (firstname, lastname, email, password, role, approved) VALUES ('$firstname', '$lastname', '$email', '$password', '$role', 0)";
-    return mysqli_query($conn, $query);
-}
-?>

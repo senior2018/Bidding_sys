@@ -14,27 +14,35 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $name = mysqli_real_escape_string($conn, $_POST['name']);
     $description = mysqli_real_escape_string($conn, $_POST['description']);
     $starting_price = mysqli_real_escape_string($conn, $_POST['starting_price']);
-
+    
+    // Insert product information into the 'products' table
     $query = "INSERT INTO products (seller_id, name, description, starting_price, status) VALUES ('$seller_id', '$name', '$description', '$starting_price', 'pending')";
     if (mysqli_query($conn, $query)) {
         $product_id = mysqli_insert_id($conn);
 
         // Handle multiple image uploads
         $target_dir = "uploads/";
-        foreach ($_FILES['images']['tmp_name'] as $key => $tmp_name) {
-            $image_name = basename($_FILES['images']['name'][$key]);
-            $target_file = $target_dir . $image_name;
+        $images = $_FILES['images'];
 
+        for ($i = 0; $i < count($images['name']); $i++) {
+            $image_name = $images['name'][$i];
+            $tmp_name = $images['tmp_name'][$i];
+            $target_file = $target_dir . basename($image_name);
+
+            // Move uploaded file to the target directory
             if (move_uploaded_file($tmp_name, $target_file)) {
                 $query = "INSERT INTO product_images (product_id, image_path) VALUES ('$product_id', '$target_file')";
                 if (!mysqli_query($conn, $query)) {
                     error_log("Failed to insert image path into database: " . mysqli_error($conn));
+                    echo "Error: Failed to save image path.";
                 }
             } else {
                 error_log("Failed to move uploaded file to target directory: $target_file");
+                echo "Error: Failed to upload image.";
             }
         }
 
+        // Redirect to manage products page
         header('Location: s_manage_product.php');
         exit();
     } else {
@@ -57,6 +65,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     <div class="content">
         <h1>Create Product</h1>
+
+        <!-- Form to create a new product -->
         <form method="post" action="s_create_product.php" enctype="multipart/form-data">
             <div class="form-group">
                 <label for="name">Product Name</label>

@@ -9,7 +9,7 @@ $query = "UPDATE auctions SET status='ongoing' WHERE status='upcoming' AND start
 mysqli_query($conn, $query);
 
 // Fetch all auctions
-$query = "SELECT a.id AS auction_id, p.id AS product_id, p.name, p.description, p.image, p.starting_price, a.start_time, a.duration, a.status 
+$query = "SELECT a.id AS auction_id, p.id AS product_id, p.name, p.description, p.starting_price, a.start_time, a.duration, a.status 
           FROM auctions a 
           JOIN products p ON a.product_id = p.id";
 $result = mysqli_query($conn, $query);
@@ -49,10 +49,23 @@ $result = mysqli_query($conn, $query);
                 </thead>
                 <tbody>
                     <?php while ($auction = mysqli_fetch_assoc($result)): ?>
+                    <?php
+                        // Fetch the first image for each product
+                        $product_id = $auction['product_id'];
+                        $image_query = "SELECT image_path FROM product_images WHERE product_id = $product_id LIMIT 1";
+                        $image_result = mysqli_query($conn, $image_query);
+                        $image = mysqli_fetch_assoc($image_result);
+                    ?>
                     <tr class="auction-row" data-status="<?php echo $auction['status']; ?>">
                         <td><?php echo htmlspecialchars($auction['name']); ?></td>
                         <td>1</td>
-                        <td><img src="<?php echo htmlspecialchars($auction['image']); ?>" alt="<?php echo htmlspecialchars($auction['name']); ?>" width="100"></td>
+                        <td>
+                            <?php if ($image): ?>
+                                <img src="<?php echo htmlspecialchars($image['image_path']); ?>" alt="<?php echo htmlspecialchars($auction['name']); ?>" width="100">
+                            <?php else: ?>
+                                No Image
+                            <?php endif; ?>
+                        </td>
                         <td>
                             <div id="description-<?php echo $auction['auction_id']; ?>" class="description" style="display: none;">
                                 <?php echo htmlspecialchars($auction['description']); ?>
